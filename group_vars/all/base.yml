@@ -39,11 +39,6 @@ base_developer_tools:
   - yamllint
   - docker.io
 
-base_virtualization_tools:
-  - vagrant
-  - virtualbox
-  - virtualbox-ext-pack
-
 base_git_bash_prompt_url: "https://github.com/magicmonty/bash-git-prompt.git"
 
 # direct install link instead of using ppa
