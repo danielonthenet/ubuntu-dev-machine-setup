@@ -4,6 +4,7 @@
   apt:
     update_cache: yes
     upgrade: dist
+    become: true
 
 - name: install archiving tools
   apt:
