@@ -62,26 +62,23 @@
     name: "{{ base_archiving_tools }}"
     state: present
 
-- name: install productivity tools
-  apt:
-    name: "{{ base_productivity_tools }}"
-    state: present
-
 - name: install system tools
   apt:
     name: "{{ base_system_tools }}"
     state: present
 
-- name: install system tools for laptop
-  apt:
-    name: "{{ base_system_tools_laptop }}"
-    state: present
-  when: laptop_mode
-
 - name: install developer tools
   apt:
     name: "{{ base_developer_tools }}"
     state: present
+
+# add user to docker group to run docker commands without sudo
+- name: add user to docker group
+  user:
+    name: "{{ local_username }}"
+    append: yes
+    groups:
+      - docker
 
 - block:
     - name: Create directories for golang
@@ -106,74 +103,3 @@
   apt:
     name: "{{ base_download_tools }}"
     state: present
-
-- name: install media packages
-  apt:
-    name: "{{ base_media_tools }}"
-    state: present
-
-- name: install google chrome
-  apt:
-    deb: "{{ base_google_chrome_url }}"
-
-- name: install bash git prompt
-  git:
-    repo: "{{ base_git_bash_prompt_url }}"
-    dest: "~{{ local_username }}/.bash-helpers/bash-git-prompt"
-    version: master
-    clone: yes
-    update: yes
-  become: yes
-  become_user: "{{ local_username }}"
-
-#- name: install qownnotes markdown notepad
-#  apt:
-#    deb: "{{ base_qownnotes_url }}"
-
-#- block:
-#    - name: fix bluetooth a2dp profile (1/2)
-#      lineinfile:
-#        line: load-module module-switch-on-connect
-#        state: present
-#        dest: /etc/pulse/default.pa
-#
-#    - name: fix bluetooth a2dp profile (2/2)
-#      blockinfile:
-#        dest: /etc/bluetooth/client.conf
-#        state: present
-#        create: yes
-#        block: |
-#          autospawn = no
-#          daemon-binary = /bin/true
-#        owner: gdm
-#        group: gdm
-
-- block:
-    - name: install virtualization tools
-      apt:
-        name: "{{ base_virtualization_tools }}"
-        state: present
-
-    # add user to docker group to run docker commands without sudo
-    - name: add user to docker group
-      user:
-        name: "{{ local_username }}"
-        append: yes
-        groups:
-          - docker
-
-    - name: install virtualbox extensions pack
-      shell: echo 'y' | vboxmanage extpack install --replace /usr/share/virtualbox-ext-pack/Oracle*
-  when: not virtual_machine_mode
-
-- block:
-    - name: install openssh-server package (1/2)
-      apt:
-        name: "{{ base_openssh_server.apt_package }}"
-        state: present
-    - name: enable and start ssh (2/2)
-      service:
-        name: "{{ base_openssh_server.service }}"
-        state: started
-        enabled: yes
-  when: not laptop_mode
