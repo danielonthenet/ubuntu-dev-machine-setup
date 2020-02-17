@@ -10,9 +10,6 @@ base_system_tools:
   - progress
   - pwgen
 
-base_system_tools_laptop:
-  - cpufrequtils
-
 base_download_tools:
   - wget
 
