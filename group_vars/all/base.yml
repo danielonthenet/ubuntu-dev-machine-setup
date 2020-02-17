@@ -1,140 +1,51 @@
 ---
 
 base_archiving_tools:
-  - arj
-  - cabextract
-  - file-roller
-  - mpack
   - p7zip-full
-  - p7zip-rar
-  - rar
-  - sharutils
-  - unace
-  - unrar
-  - unzip
-  - uudeview
+  - unzip  
   - zip
 
-base_productivity_tools:
-  - libreoffice
-
 base_system_tools:
-  - bleachbit
-  #- blueman
   - fatrace
-  - gnome-calculator
-  #- gnome-shell-extension-dashtodock
-  #- gnome-shell-extension-redshift
-  #- gnome-shell-extension-weather
-  - gnome-tweak-tool
   - progress
   - pwgen
-  #- syncthing
 
 base_system_tools_laptop:
   - cpufrequtils
-  - laptop-mode-tools
-  - powertop
 
 base_download_tools:
-  - aria2
-  - axel
-  - qbittorrent
-  - speedtest-cli
   - wget
-  - youtube-dl
 
 base_developer_tools:
-  - android-tools-adb
-  - android-tools-fastboot
-  - ansible
   - ansible-lint
-  - awscli
-  - cloc
-  - clusterssh
-  - colordiff
   - curl
-  - default-jre-headless
-  - dos2unix
-  - expect
-  - filezilla
-  - g++
-  - gedit-plugins
   - git
   - git-extras
   - gitg
   - golang-go
   - htop
   - httpie
-  - inotify-tools
-  - ipython
-  - ipython3
-  - jq
-  - kwalify
-  - makeself
-  - meld
-  - most
+  - jq  
   - netcat
   - nmap
   - nodejs
-  - pandoc
-  - parallel
-  - pep8
-  - powerline
-  - pry
   - pssh
-  #- puppet
-  #- puppet-lint
-  - pv
-  - pylint
-  - pylint3
-  - python3-demjson  # provides jsonlint-py3 for json lint
-  - python3-pep8
-  - python3-pep8-naming
   - python3-pip
-  - python-autopep8
-  - python-jmespath
-  - python-pep8
-  - python-pep8-naming
   - python-pip
-  - python-pygments
-  - ranger
-  - recode
-  - rename
-  - ruby
-  - ruby-dev
   - shellcheck
   - siege
-  - socat
-  - sshfs
-  - sshpass
   - sslscan
-  - tilix
   - tmux
   - tree
   - uget
-  - virtualenv
-  - virtualenvwrapper
   - xclip
   - yamllint
-  - zeal
+  - docker.io
 
 base_virtualization_tools:
   - vagrant
   - virtualbox
   - virtualbox-ext-pack
-  - docker.io
-
-base_media_tools:
-  - ffmpeg
-  - gimp
-  - imagemagick
-  - libimage-exiftool-perl
-  - mediainfo
-  - soundconverter
-  - vlc
-
-base_google_chrome_url: "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 
 base_git_bash_prompt_url: "https://github.com/magicmonty/bash-git-prompt.git"
 
