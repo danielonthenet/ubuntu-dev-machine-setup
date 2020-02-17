@@ -1,10 +1,10 @@
 ---
 
 - name: perform a dist upgrade
+  become: true
   apt:
     update_cache: yes
-    upgrade: dist
-    become: true
+    upgrade: dist    
 
 - name: install archiving tools
   apt:
